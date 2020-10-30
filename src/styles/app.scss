@@ -1,0 +1,59 @@
+//@import "./reset";
+//@import "./animation";
+//@import "./music";
+
+
+
+html, body {
+  height: 100%;
+}
+
+html, body, ul, li, div, p, h1, h2, h3, h4, h5, h6, span.strong {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+//.page{
+//  position: absolute;
+//  left: 0;
+//  right: 0;
+//  top: 0;
+//  bottom: 0;
+//  background-color: #f1f4fc;
+//}
+
+
+.scroll{
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;// 属性控制元素在移动设备上是否使用滚动回弹效果. auto当手指从触摸屏上移开，滚动会立即停止 touch 当手指从触摸屏上移开，内容会继续保持一段时间的滚动效果。
+}
+img{
+  width: 100%;
+  pointer-events: none;
+}
+.abs{
+  position: absolute;
+  &.abs-center{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  &.abs-lf{
+    left: 50%;
+    transform: translate(-50%,0);
+  }
+  &.abs-full{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}

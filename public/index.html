@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<html manifest="IGNORE.manifest"><!--阻止微信缓存-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <!--阻止微信缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!--阻止微信缓存-->
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=QYFBZ-5WQ3P-TDEDT-LTOXG-HHMLO-MEBUB
+"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+      (function () {
+        let map = getParam();
+        let code = map['code'];
+        let state = map['state'] || 'STATE';
+        let isWeiXin = navigator.userAgent.match('MicroMessenger');
+        let wxRedirectUrl = encodeURIComponent('<%= VUE_APP_wxRedirectUrl %>' + location.search);
+
+        if (isWeiXin && (!code || !state)) {
+          location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=<%= VUE_APP_wxAppId %>&redirect_uri=' + wxRedirectUrl + '&response_type=code&scope=snsapi_userinfo&state=' + state + '#wechat_redirect';
+        }
+        function getParam() {
+          let params = location.search;
+          let pMap = [];
+          if (params.indexOf("?") != -1) {
+            params = params.substr(1).split("&");
+            for (let i = 0; i < params.length; i++) {
+              let param = params[i].split('=');
+              pMap[param[0]] = param[1];
+            }
+          }
+          return pMap;
+        }
+      })();
+    </script>
+    <script>
+      if (typeof window.entryUrl === 'undefined' || window.entryUrl === '') {
+        window.entryUrl = location.href.split('#')[0]
+      }
+    </script>
+    <title>向化镇</title>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

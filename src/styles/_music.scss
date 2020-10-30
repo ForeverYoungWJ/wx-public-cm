@@ -1,0 +1,50 @@
+@keyframes music-spin {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.music-btn {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  top: 40px;
+  right: 40px;
+  z-index: 9000;
+  border-radius: 50%;
+  &.on{
+    .icon-music-on{
+      animation: music-spin 2s linear infinite forwards;
+    }
+  }
+  .icon-music {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+  .icon-music-on{
+    background-image:url('assets/music/on.png');
+  }
+  .icon-music-off{
+    background-image:url('assets/music/off.png');
+  }
+  &.on {
+    .icon-music-on {
+      display: block;
+    }
+    .icon-music-off {
+      display: none;
+    }
+  }
+  &.off {
+    .icon-music-off {
+      display: block;
+    }
+    .icon-music-on {
+      display: none;
+    }
+  }
+}

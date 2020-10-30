@@ -1,0 +1,46 @@
+@mixin abs-lc($w) {
+  position: absolute;
+  width: $w+px;
+  left: 50%;
+  margin-left: -$w/2+px;
+}
+
+@mixin abs($w,$left,$top) {
+  position: absolute;
+  width: $w+px;
+  left: $left+px;
+  top: $top+px;
+}
+
+@mixin abs-lh($h){
+  position: absolute;
+  height: $h+px;
+  top: 50%;
+  margin-top: - $h/2+px;
+}
+
+@mixin abs-ct($w,$h){
+  position: absolute;
+  width: $w+px;
+  height: $h+px;
+  left: 50%;
+  top:50%;
+  margin-top: - $h/2+px;
+  margin-left: - $w/2+px;
+}
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin  abs-full{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+
